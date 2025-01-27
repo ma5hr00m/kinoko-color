@@ -1,0 +1,38 @@
+.colorWheel {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  .focusPoint {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+}
+
+.colorInfo {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  font-size: 1.2rem;
+
+  .colorBox {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  .values {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

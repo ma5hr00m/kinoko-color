@@ -1,0 +1,48 @@
+.imagePage {
+  padding: 20px;
+
+  h1 {
+    margin-bottom: 24px;
+    color: #333;
+  }
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.colorDisplay {
+  position: sticky;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.colorBox {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease-out;
+}
+
+.colorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: monospace;
+  font-size: 14px;
+
+  > div {
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+}
