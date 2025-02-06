@@ -1,0 +1,118 @@
+@use '../../styles/variables.scss' as *;
+
+.aboutPage {
+  @include page-container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-2xl;
+  animation: fadeIn 0.3s ease-out;
+  will-change: opacity, transform;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content {
+  @include section-container;
+  max-width: 800px;
+  width: 100%;
+  padding: $spacing-3xl;
+  text-align: center;
+  animation: scaleIn 0.4s ease-out;
+  will-change: transform, opacity;
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    background: #212529;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 0 $spacing-xl;
+    line-height: 1.2;
+  }
+
+  .description {
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+    line-height: 1.6;
+    color: $text-secondary;
+    margin-bottom: $spacing-2xl;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.section {
+  margin-top: $spacing-3xl;
+  padding-top: $spacing-2xl;
+  border-top: 1px solid $border-light;
+
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 1.75rem);
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0 0 $spacing-xl;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-xl;
+  flex-wrap: wrap;
+  padding: $spacing-lg 0;
+
+  @media (max-width: 480px) {
+    gap: $spacing-lg;
+  }
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-lg;
+  border-radius: $radius-lg;
+  color: $text-primary;
+  text-decoration: none;
+  transition: all $transition-base;
+  background: $background-gradient-start;
+  border: 1px solid $border-light;
+  will-change: transform, box-shadow;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+    border-color: $primary-color;
+    
+    svg {
+      color: $primary-color;
+    }
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    transition: color $transition-base;
+  }
+
+  span {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    justify-content: center;
+  }
+}

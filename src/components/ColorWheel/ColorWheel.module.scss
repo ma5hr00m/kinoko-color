@@ -1,38 +1,137 @@
+@use '../../styles/variables.scss' as *;
+
+.colorWheelContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-2xl;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $spacing-xl;
+}
+
 .colorWheel {
   position: relative;
-  width: 300px;
-  height: 300px;
   border-radius: 50%;
   cursor: pointer;
+  width: min(400px, 90vw);
+  height: min(400px, 90vw);
+  box-shadow: $shadow-lg;
+  transition: transform $transition-base;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
 
   .focusPoint {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 2px solid white;
+    width: 24px;
+    height: 24px;
+    border: 3px solid white;
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-    pointer-events: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    width: min(350px, 80vw);
+    height: min(350px, 80vw);
+
+    .focusPoint {
+      width: 20px;
+      height: 20px;
+      border-width: 2px;
+    }
   }
 }
 
 .colorInfo {
-  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+  padding: $spacing-xl;
+  background: white;
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-lg;
   display: flex;
-  gap: 20px;
-  font-size: 1.2rem;
+  gap: $spacing-xl;
+  animation: slideIn 0.3s ease-out;
+  border: 1px solid $border-light;
 
   .colorBox {
-    width: 60px;
-    height: 60px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    width: 90px;
+    height: 90px;
+    border-radius: $radius-lg;
+    border: 1px solid $border-light;
+    box-shadow: $shadow-sm;
+    transition: transform $transition-base;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      width: 75px;
+      height: 75px;
+    }
   }
 
   .values {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: $spacing-md;
+    flex: 1;
+  }
+
+  @media (max-width: 768px) {
+    padding: $spacing-lg;
+    gap: $spacing-lg;
+  }
+}
+
+.colorValue {
+  display: flex;
+  align-items: center;
+  padding: $spacing-sm $spacing-md;
+  background: $background-gradient-start;
+  border-radius: $radius-lg;
+  cursor: pointer;
+  transition: all $transition-base;
+  user-select: none;
+  font-size: 0.875rem;
+  width: 100%;
+  border: 1px solid $border-light;
+
+  &:hover {
+    background: $background-gradient-end;
+    transform: translateY(-1px);
+    box-shadow: $shadow-sm;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &::before {
+    content: "📋";
+    margin-right: $spacing-sm;
+    opacity: 0.7;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

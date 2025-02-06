@@ -1,48 +1,265 @@
+@use '../../styles/variables.scss' as *;
+
 .imagePage {
-  padding: 20px;
+  @include page-container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-3xl;
+  animation: fadeIn 0.5s ease-out;
+  padding: $spacing-2xl;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: $spacing-lg;
+    gap: $spacing-2xl;
+  }
 
   h1 {
-    margin-bottom: 24px;
-    color: #333;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    background: #212529;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  p {
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+    color: $text-secondary;
+    margin: $spacing-lg 0 0;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 600px;
+  }
+}
+
+hgroup {
+  text-align: center;
+  animation: slideIn 0.6s ease-out;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 $spacing-xl;
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    background: #212529;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: $spacing-md;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: $text-secondary;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 $spacing-md;
+  }
+}
+
+.uploadSection {
+  @include section-container;
+  width: 100%;
+  max-width: 800px;
+  animation: scaleIn $transition-base;
+  will-change: transform, box-shadow;
+  padding: $spacing-2xl;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+  }
+
+  p {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    color: $text-secondary;
+    line-height: 1.6;
+    margin-bottom: $spacing-xl;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    padding: $spacing-xl;
   }
 }
 
 .content {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-2xl;
+  width: 100%;
+  animation: fadeIn 0.3s ease-out;
+  will-change: opacity, transform;
+
+  @media (max-width: 768px) {
+    gap: $spacing-xl;
+  }
 }
 
 .colorDisplay {
-  position: sticky;
-  top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  @include section-container;
+  @include flex-center;
+  gap: $spacing-xl;
+  width: 100%;
+  max-width: 800px;
+  min-height: 120px;
+  animation: fadeIn 0.3s ease-out;
+  will-change: opacity, transform;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
 }
 
 .colorBox {
-  width: 200px;
-  height: 200px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease-out;
+  width: clamp(60px, 10vw, 80px);
+  height: clamp(60px, 10vw, 80px);
+  border-radius: $radius-lg;
+  border: 2px solid $border-light;
+  transition: transform $transition-base, border-color $transition-base;
+  will-change: transform, border-color;
+  flex-shrink: 0;
+
+  &:hover {
+    transform: scale(1.05);
+    border-color: $primary-color;
+  }
 }
 
 .colorInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-family: monospace;
-  font-size: 14px;
+  @include flex-column;
+  gap: $spacing-md;
+  flex: 1;
+  min-width: 0;
+  animation: fadeIn 0.3s ease-out;
+  will-change: opacity, transform;
 
-  > div {
-    padding: 8px;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
+  h3 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0;
+  }
+
+  p {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    color: $text-secondary;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.colorValue {
+  padding: $spacing-md $spacing-lg;
+  background: $background-gradient-end;
+  border-radius: $radius-md;
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all $transition-base;
+  will-change: transform, background-color, border-color;
+  border: 1px solid transparent;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    background: lighten($background-gradient-end, 5%);
+    border-color: $border-light;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.loadingContainer {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $background-gradient-start;
+  border-radius: $radius-2xl;
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba($primary-color, 0.1);
+  border-left-color: $primary-color;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }

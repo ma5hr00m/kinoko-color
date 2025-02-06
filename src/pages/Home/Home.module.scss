@@ -1,0 +1,125 @@
+@use '../../styles/variables.scss' as *;
+
+.homePage {
+  @include page-container;
+  justify-content: center;
+  background: white;
+  padding: $spacing-2xl;
+  animation: fadeIn 0.3s ease-out;
+  will-change: opacity, transform;
+}
+
+.hero {
+  @include flex-column;
+  align-items: center;
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: $spacing-2xl 0;
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    background: #212529;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+    color: $text-secondary;
+    margin: $spacing-lg 0 0;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-xl;
+  width: 100%;
+  padding: $spacing-2xl $spacing-lg;
+  margin: 0 auto;
+}
+
+.feature {
+  @include section-container;
+  @include flex-column;
+  align-items: center;
+  text-align: center;
+  gap: $spacing-md;
+  padding: $spacing-xl;
+  flex: 1;
+  min-width: 300px;
+  max-width: 380px;
+  transition: all $transition-base;
+  will-change: transform, box-shadow;
+
+  @media (max-width: 1024px) {
+    min-width: 280px;
+  }
+
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
+
+  svg {
+    width: 48px;
+    height: 48px;
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+    transition: transform $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0;
+  }
+
+  p {
+    color: $text-secondary;
+    margin: 0;
+    line-height: 1.6;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+  }
+}
+
+.cta {
+  @include button;
+  margin-top: $spacing-xl;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  padding: $spacing-md $spacing-xl;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

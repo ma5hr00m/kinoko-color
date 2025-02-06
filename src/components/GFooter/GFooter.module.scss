@@ -1,0 +1,45 @@
+@use '../../styles/variables.scss' as *;
+
+.footer {
+  width: 100%;
+  padding: $spacing-md 0;
+  background: white;
+  border-top: 1px solid $border-light;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-xl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  color: $text-muted;
+  font-size: 0.875rem;
+}
+
+.copyright {
+  margin: 0;
+}
+
+.icp {
+  color: $text-muted;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    color: $text-secondary;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem;
+  }
+}
