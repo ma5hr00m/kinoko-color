@@ -15,8 +15,10 @@
   border: 1px solid $border-light;
   justify-content: center;
 
-  @media (max-width: 768px) {
-    padding: $spacing-xs;
+  & {
+    @media (max-width: 768px) {
+      padding: $spacing-xs;
+    }
   }
 }
 

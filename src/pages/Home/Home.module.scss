@@ -7,6 +7,16 @@
   padding: $spacing-2xl;
   animation: fadeIn 0.3s ease-out;
   will-change: opacity, transform;
+
+  & {
+    @media (max-width: 768px) {
+      padding: $spacing-xl;
+    }
+
+    @media (max-width: 480px) {
+      padding: $spacing-lg;
+    }
+  }
 }
 
 .hero {
@@ -61,43 +71,45 @@
   transition: all $transition-base;
   will-change: transform, box-shadow;
 
-  @media (max-width: 1024px) {
-    min-width: 280px;
-  }
-
-  @media (max-width: 768px) {
-    min-width: 100%;
-  }
-
-  svg {
-    width: 48px;
-    height: 48px;
-    color: $primary-color;
-    margin-bottom: $spacing-sm;
-    transition: transform $transition-base;
-  }
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: $shadow-lg;
-
+  & {
     svg {
-      transform: scale(1.1);
+      width: 48px;
+      height: 48px;
+      color: $primary-color;
+      margin-bottom: $spacing-sm;
+      transition: transform $transition-base;
     }
-  }
 
-  h3 {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    font-weight: 600;
-    color: $text-primary;
-    margin: 0;
-  }
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-lg;
 
-  p {
-    color: $text-secondary;
-    margin: 0;
-    line-height: 1.6;
-    font-size: clamp(0.875rem, 1.5vw, 1rem);
+      svg {
+        transform: scale(1.1);
+      }
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      font-weight: 600;
+      color: $text-primary;
+      margin: 0;
+    }
+
+    p {
+      color: $text-secondary;
+      margin: 0;
+      line-height: 1.6;
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+    }
+
+    @media (max-width: 1024px) {
+      min-width: 280px;
+    }
+
+    @media (max-width: 768px) {
+      min-width: 100%;
+    }
   }
 }
 

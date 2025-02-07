@@ -41,8 +41,10 @@
   }
 
   @media (max-width: 768px) {
-    width: min(350px, 80vw);
-    height: min(350px, 80vw);
+    & {
+      width: min(350px, 80vw);
+      height: min(350px, 80vw);
+    }
 
     .focusPoint {
       width: 20px;
@@ -75,11 +77,6 @@
     &:hover {
       transform: scale(1.05);
     }
-
-    @media (max-width: 768px) {
-      width: 75px;
-      height: 75px;
-    }
   }
 
   .values {
@@ -90,8 +87,15 @@
   }
 
   @media (max-width: 768px) {
-    padding: $spacing-lg;
-    gap: $spacing-lg;
+    & {
+      padding: $spacing-lg;
+      gap: $spacing-lg;
+    }
+
+    .colorBox {
+      width: 75px;
+      height: 75px;
+    }
   }
 }
 
@@ -101,37 +105,35 @@
   padding: $spacing-sm $spacing-md;
   background: $background-gradient-start;
   border-radius: $radius-lg;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: $text-secondary;
   cursor: pointer;
   transition: all $transition-base;
   user-select: none;
-  font-size: 0.875rem;
-  width: 100%;
-  border: 1px solid $border-light;
 
   &:hover {
     background: $background-gradient-end;
     transform: translateY(-1px);
-    box-shadow: $shadow-sm;
   }
 
   &:active {
     transform: translateY(0);
   }
 
-  &::before {
-    content: "📋";
-    margin-right: $spacing-sm;
-    opacity: 0.7;
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: $spacing-xs $spacing-sm;
   }
 }
 
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }

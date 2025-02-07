@@ -103,6 +103,8 @@
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
   will-change: transform, box-shadow;
   min-height: 3rem;
+  animation: slideIn 0.3s ease-out;
+  animation-fill-mode: both;
 
   &:hover {
     transform: translateY(-2px) scale(1.02);
@@ -112,6 +114,20 @@
 
   &:active {
     transform: scale(0.98);
+  }
+
+  &.light {
+    color: $text-primary;
+  }
+
+  &.dark {
+    color: white;
+  }
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.05}s;
+    }
   }
 }
 

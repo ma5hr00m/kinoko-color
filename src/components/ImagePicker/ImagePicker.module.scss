@@ -97,13 +97,15 @@
       border-color: #4a90e2;
       background: #f8f9fa;
 
-      svg {
-        color: #4a90e2;
-        transform: scale(1.1);
-      }
+      & {
+        svg {
+          color: #4a90e2;
+          transform: scale(1.1);
+        }
 
-      .placeholderText {
-        color: #4a90e2;
+        .placeholderText {
+          color: #4a90e2;
+        }
       }
     }
   }

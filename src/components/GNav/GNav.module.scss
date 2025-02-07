@@ -19,9 +19,11 @@
     justify-content: center;
     gap: $spacing-lg;
 
-    @media (max-width: 768px) {
-      padding: $spacing-md;
-      gap: $spacing-md;
+    & {
+      @media (max-width: 768px) {
+        padding: $spacing-md;
+        gap: $spacing-md;
+      }
     }
   }
 
@@ -72,13 +74,15 @@
       }
     }
 
-    @media (max-width: 768px) {
-      padding: $spacing-xs;
-      font-size: 0;
+    & {
+      @media (max-width: 768px) {
+        padding: $spacing-xs;
+        font-size: 0;
 
-      svg {
-        width: 24px;
-        height: 24px;
+        svg {
+          width: 24px;
+          height: 24px;
+        }
       }
     }
   }

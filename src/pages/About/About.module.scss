@@ -8,6 +8,12 @@
   padding: $spacing-2xl;
   animation: fadeIn 0.3s ease-out;
   will-change: opacity, transform;
+
+  & {
+    @media (max-width: 768px) {
+      padding: $spacing-xl;
+    }
+  }
 }
 
 @keyframes fadeIn {
@@ -50,6 +56,12 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  & {
+    @media (max-width: 768px) {
+      padding: $spacing-2xl;
+    }
+  }
 }
 
 .section {
@@ -72,8 +84,10 @@
   flex-wrap: wrap;
   padding: $spacing-lg 0;
 
-  @media (max-width: 480px) {
-    gap: $spacing-lg;
+  & {
+    @media (max-width: 480px) {
+      gap: $spacing-lg;
+    }
   }
 }
 
@@ -103,16 +117,7 @@
   svg {
     width: 20px;
     height: 20px;
+    color: $text-secondary;
     transition: color $transition-base;
-  }
-
-  span {
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
-  @media (max-width: 480px) {
-    width: 100%;
-    justify-content: center;
   }
 }
